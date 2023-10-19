@@ -27,3 +27,4 @@ plusButton.addEventListener("click", () => {
 
 // Инициализация счетчика
 updateCount();
+

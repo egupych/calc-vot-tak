@@ -47,17 +47,9 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow-x:hidden;
-  background: #F7F7F7;
-  font-family: 'Alice', serif;
-	font-size: 24px;
   /*user-select: none;  Не даёт взаимодействовать с текстом */
 }
 
-  /*Меняет цвет выделения*/
-::selection {
-  background-color: #072239;
-  color: #F7F7F7;
-}
   
 input,
 button,
@@ -111,6 +103,17 @@ body {
   padding: 30px;
 }
 
+.field {
+  margin-bottom: 17.498px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto; /* Выравнивание по центру */
+  padding: 50px;
+  background-color: #f0f0f0;
+}
+
 /* Стили для названия полей */
 .field label {
   display: block; /* Делаем название поля блочным элементом, чтобы поместить его над полем */
@@ -127,7 +130,6 @@ textarea, input[type="text"] {
   height: 42.346px;
   background-color: #D9D9D9;
   outline: none;
-  margin-bottom: 17.498px;
   color: #314455;
   font-family: Roboto;
   font-size: 17.498px;
@@ -136,15 +138,17 @@ textarea, input[type="text"] {
   line-height: 100%;
 }
 
+/* Стили для текстовых полей */
+input[type="text"]::placeholder, textarea::placeholder {
+  color: #BFBFBF; /* Цвет текста подсказки */
+}
+
+
 /* Стили для текстового поля, когда не в фокусе */
 textarea:not(:focus), input[type="text"]:not(:focus) {
   border-bottom: 4.374px solid #BFBFBF;
 }
 
-/* Стили для страницы */
-body {
-  background-color: #f0f0f0;
-}
 
 /* Счётчик */
 ::selection {
@@ -157,6 +161,7 @@ body {
 .counter {
   display: flex;
   align-items: center;
+  margin-bottom: 17.498px;
 }
 
 .minus-button, .plus-button {
@@ -186,7 +191,178 @@ body {
 
   background: #D9D9D9;
   color: #314455;
-  padding: 10px 25px;
+  padding: 10px 30px;
   text-align: center;
   min-width: 50px;
+}
+
+
+/* Стили для поля ввода электронной почты */
+input[type="email"] {
+  border-bottom: 4.374px solid transparent;
+  border-bottom: 4.374px solid #D12326;
+  padding: 10px;
+  width: 326.08px;
+  height: 42.346px;
+  background-color: #D9D9D9;
+  outline: none;
+  color: #314455;
+  font-family: Roboto;
+  font-size: 17.498px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+/* Стили для текстовой подсказки */
+input[type="email"]::placeholder {
+  color: #BFBFBF; /* Цвет текста подсказки */
+
+}
+
+/* Стили для поля ввода электронной почты, когда не в фокусе */
+input[type="email"]:not(:focus) {
+  border-bottom: 4.374px solid #BFBFBF;
+  background-color: #D9D9D9;
+}
+
+
+/* Стили для поля ввода номера телефона */
+input[type="tel"] {
+  border-bottom: 4.374px solid transparent;
+  border-bottom: 4.374px solid #D12326;
+  padding: 10px;
+  width: 326.08px;
+  height: 42.346px;
+  background-color: #D9D9D9;
+  outline: none;
+  color: #314455;
+  font-family: Roboto;
+  font-size: 17.498px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+/* Стили для текстовой подсказки */
+input[type="tel"]::placeholder {
+  color: #BFBFBF;
+}
+
+input[type="tel"]:not(:focus) {
+  border-bottom: 4.374px solid #BFBFBF;
+  background-color: #D9D9D9;
+}
+
+/* Стили для выпадающего списка, аналогичные полям ввода номера телефона */
+#selectField {
+  border-bottom: 4.374px solid transparent;
+  border-bottom: 4.374px solid #D12326;
+  padding: 10px;
+  width: 326.08px;
+  background-color: #D9D9D9;
+  outline: none;
+  color: #314455;
+  font-family: Roboto;
+  font-size: 17.498px;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+/* Стили для текстовой подсказки */
+#selectField::placeholder {
+  color: #BFBFBF;
+}
+
+/* Стили для выпадающего списка, когда не в фокусе */
+#selectField:not(:focus) {
+  border-bottom: 4.374px solid #BFBFBF;
+  background-color: #D9D9D9;
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 36px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #BFBFBF;
+  background: #D9D9D9;
+  -webkit-transition: all .275s;
+  transition: all .275s;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content:'✕';
+  position: absolute;
+  top: 7px;
+  left:8.6px;
+  color: #D12326;
+  line-height: 100%;
+  -webkit-transition: all .2s;
+      transition: all .2s;
+}
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(45deg);
+      transform: scale(0) rotate(45deg);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+      transform: scale(1) rotate(0);
+}
+
+/* Disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #BFBFBF;
+}
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #777;
+}
+
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+
+.btn.btn {
+display: inline-block;
+padding: 20px 60px;
+text-decoration: none;
+background: #E62929;
+color: #F2F2F2;
+transition: all .4s;
+}
+
+.btn.btn:hover,
+.btn.btn:focus {
+background: #000;
 }

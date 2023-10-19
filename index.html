@@ -5,21 +5,81 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="field">
-        <label for="fixedText">Ваш текст</label>
-        <input type="text">
-    </div>
-    <div class="field">
-        <label for="text">Комментарий</label>
-        <textarea id="text" rows="5" cols="30"></textarea>
-    </div>
+    <div class="container">
+        <div class="field">
+            <label for="fixedText">Ваш текст</label>
+            <input type="text" placeholder="Текст для вывески">
+        </div>
+        <div class="field">
+            <label for="fixedText">Высота букв</label>
+            <input type="text" placeholder="В сантиметрах">
+        </div>
+        <div class="field">
+            <label for="text">Комментарий</label>
+            <textarea id="text" rows="5" cols="30" placeholder="Ваши вопросы и пожелания"></textarea>
+        </div>
 
-    <div class="counter">
-        <button class="minus-button">-</button>
-        <div class="count">0</div>
-        <button class="plus-button">+</button>
-    </div>
+        <div class="counter">
+            <button class="minus-button">-</button>
+            <div class="count">0</div>
+            <button class="plus-button">+</button>
+        </div>
 
+
+
+        <div class="field">
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" placeholder="nickname@mail.com">
+        </div>
+
+        <div class="field">
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" placeholder="+7">
+        </div>
+
+        <div class="field">
+            <label for="selectField">Шрифт</label>
+            <select id="selectField">
+                <option value="option1">Простой шрифт</option>
+                <option value="option2">Шрифт с засечками</option>
+                <option value="option3">Сложный шрифт</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="selectField">Подсветка</label>
+            <select id="selectField">
+                <option value="option4">Светится лицо</option>
+                <option value="option5">Светится лицо и боковина</option>
+                <option value="option6">Контражурная подсветка</option>
+                <option value="option7">Светится лицо и контражур</option>
+                <option value="option8">С открытыми светодиодами</option>
+                <option value="option9">Псевдообъёмная</option>
+                <option value="option10">Без подсветки</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="selectField">Монтажные работы c доставкой</label>
+            <select id="selectField">
+                <option value="option11">Не требуются</option>
+                <option value="option12">До 6 метров от земли</option>
+                <option value="option13">От 6 метров от земли</option>
+                <option value="option14">С автовышкой</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox">Согласование с Акиматом сроком на 5 лет, подготовка проекта, 50 000 ₸</label>
+        </div>   
+
+        <a class="btn">Оформить заказ</a>
+
+        
+    </container>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="maskinput.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
