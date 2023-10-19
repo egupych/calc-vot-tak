@@ -293,8 +293,8 @@ input[type="tel"]:not(:focus) {
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
-  padding-top: 5px;
-  padding-left: 40px;
+  padding-top: 0px;
+  padding-left: 50px;
   line-height: 100%;
   cursor: pointer;
 }
@@ -306,8 +306,8 @@ input[type="tel"]:not(:focus) {
   position: absolute;
   left: 0;
   top: 0;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border: 2px solid #BFBFBF;
   background: #D9D9D9;
   -webkit-transition: all .275s;
@@ -319,8 +319,8 @@ input[type="tel"]:not(:focus) {
 [type="checkbox"]:checked + label:after {
   content:'✕';
   position: absolute;
-  top: 7px;
-  left:8.6px;
+  top: 9px;
+  left: 11px;
   color: #D12326;
   line-height: 100%;
   -webkit-transition: all .2s;
@@ -356,6 +356,24 @@ input[type="tel"]:not(:focus) {
   color: #aaa;
 }
 
+.offer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.price_text {
+  color: #314455;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 39.922px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.922px */
+}
 
 .btn.btn {
 display: inline-block;
