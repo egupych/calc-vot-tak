@@ -47,7 +47,7 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow-x:hidden;
-  /*user-select: none;  Не даёт взаимодействовать с текстом */
+  user-select: none;
 }
 
   
@@ -102,6 +102,7 @@ body {
   line-height: 100%;
   padding: 30px;
 }
+
 
 .field {
   margin-bottom: 17.498px;
@@ -290,7 +291,8 @@ input[type="tel"]:not(:focus) {
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
-  padding-left: 36px;
+  padding-top: 5px;
+  padding-left: 40px;
   line-height: 100%;
   cursor: pointer;
 }
@@ -366,3 +368,4 @@ transition: all .4s;
 .btn.btn:focus {
 background: #000;
 }
+
