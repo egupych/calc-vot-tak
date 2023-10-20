@@ -29,6 +29,10 @@
   aside {
 	display: block;
   }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,500;1,700&family=Sofia+Sans+Extra+Condensed&display=swap');
+
   
 html {
   height: 100%;
@@ -100,7 +104,6 @@ body {
   font-style: normal;
   font-weight: 600;
   line-height: 100%;
-  padding: 30px;
 }
 
 
@@ -110,7 +113,7 @@ body {
 
 .container {
   width: 1200px;
-  margin: 0 auto; /* Выравнивание по центру */
+  margin: 25px auto;
   padding: 50px;
   background-color: #f0f0f0;
 }
@@ -321,7 +324,7 @@ input[type="tel"]:not(:focus) {
   top: 0;
   width: 35px;
   height: 35px;
-  border: 2px solid #BFBFBF;
+  /* border: 2px solid #BFBFBF; */
   background: #D9D9D9;
   -webkit-transition: all .275s;
   transition: all .275s;
@@ -336,6 +339,7 @@ input[type="tel"]:not(:focus) {
   left: 11px;
   color: #D12326;
   line-height: 100%;
+  background: #D9D9D9;
   -webkit-transition: all .2s;
       transition: all .2s;
 }
@@ -386,27 +390,231 @@ input[type="tel"]:not(:focus) {
   font-size: 39.922px;
   font-style: normal;
   font-weight: 600;
-  line-height: 140%; /* 39.922px */
+  line-height: 160%;
 }
 
-.btn.btn {
-display: inline-block;
-padding: 20px 60px;
-text-decoration: none;
-background: #E62929;
-color: #F2F2F2;
-transition: all .4s;
+.animated-button {
+  position: relative;
+  display: inline-block;
+  padding: 18px 44px;
+  border: none;
+  background-color: inherit;
+  font-family: Roboto;
+  font-size: 17.498px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  color: #D12326;
+  box-shadow: 0 0 0 4px #D12326;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.btn.btn:hover,
-.btn.btn:focus {
-background: #000;
-cursor: pointer;
+.animated-button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #D12326;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
 }
+
+.animated-button span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-button:hover span:first-child {
+  color: #F7F7F7;
+}
+
+.animated-button:active {
+  scale: 0.95;
+}
+
+.animated-button:hover span:last-child {
+  width: 300px;
+  height: 150px;
+  opacity: 1;
+  background-color: #D12326;
+
+}
+
+
 
 
 .big {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+}
+
+
+
+:root {
+  --color-text: #D12326;
+  --color-bg: #f0f0f0;
+  --color-bg-accent: #f0f0f0;
+  --size: clamp(10rem, 1rem + 40vmin, 30rem);
+  --gap: calc(var(--size) / 14);
+  --duration: 60s;
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #f0f0f0;
+    --color-bg: #D12326;
+    --color-bg-accent: #D12326;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  mask-image: linear-gradient(
+    var(--mask-direction, to right),
+    hsl(0 0% 0% / 0),
+    hsl(0 0% 0% / 1) 20%,
+    hsl(0 0% 0% / 1) 80%,
+    hsl(0 0% 0% / 0)
+  );
+}
+
+.marquee__group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll-x var(--duration) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__group {
+    animation-play-state: paused;
+  }
+}
+
+.marquee--vertical {
+  --mask-direction: to bottom;
+}
+
+.marquee--vertical,
+.marquee--vertical .marquee__group {
+  flex-direction: column;
+}
+
+.marquee--vertical .marquee__group {
+  animation-name: scroll-y;
+}
+
+.marquee--reverse .marquee__group {
+  animation-direction: reverse;
+  animation-delay: -3s;
+}
+
+@keyframes scroll-x {
+  from {
+    transform: translateX(var(--scroll-start));
+  }
+  to {
+    transform: translateX(var(--scroll-end));
+  }
+}
+
+@keyframes scroll-y {
+  from {
+    transform: translateY(var(--scroll-start));
+  }
+  to {
+    transform: translateY(var(--scroll-end));
+  }
+}
+
+/* Element styles */
+.marquee svg {
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  fill: var(--color-text);
+  background: var(--color-bg-accent);
+  aspect-ratio: 16/9;
+  padding: calc(var(--size) / 10);
+  border-radius: 0px;
+}
+
+.marquee--vertical svg {
+  aspect-ratio: 1;
+  width: calc(var(--size) / 1.5);
+  padding: calc(var(--size) / 6);
+}
+
+/* Parent wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin: auto;
+  max-width: 100vw;
+  margin-top: 18px;
+}
+
+.wrapper--vertical {
+  flex-direction: row;
+  height: 100vh;
+}
+
+@keyframes fade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+.rocket {
+  position: fixed;
+  bottom: 17px;
+  right: 14px;
+  width: 57px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+} 
+
+.rocket:hover {
+transform: scale(1.05);
+} 
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/* Скроллбар                                        */
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+::-webkit-scrollbar {
+  width: 10px; /* Ширина скроллбара */
+  background-color: transparent; 
+  transition: all 0.3s ease;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #D12326; /* Цвет полосы прокрутки при наведении */
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #D12326; /* Цвет полосы прокрутки при наведении */
 }
