@@ -22,7 +22,7 @@
   a:active {
 	outline: none;
   }
-  
+
   nav,
   footer,
   header,
@@ -33,6 +33,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,500;1,700&family=Sofia+Sans+Extra+Condensed&display=swap');
 
+:root{
+  --first-color: #D12326;
+  --second-color: #314455;
+  --body-color: #f0f0f0;
+}
   
 html {
   height: 100%;
@@ -68,10 +73,7 @@ button {
 cursor: pointer;
 background: none;
 }
-button::-moz-focus-inner {
-padding: 0;
-border: 0;
-}
+
 a,
 a:visited {
 text-decoration: none;
@@ -92,13 +94,8 @@ h6 {
 font-size: inherit;
 }
 
-.bigred {
-font-size: 20px;
-color: red;
-}
-
 body {
-  color: #314455;
+  color: var(--second-color);
   font-family: Roboto;
   font-size: 17.498px;
   font-style: normal;
@@ -128,7 +125,7 @@ body {
 /* Стили для текстового поля */
 textarea, input[type="text"] {
   border-bottom: 4.374px solid transparent;
-  border-bottom: 4.374px solid #D12326;
+  border-bottom: 4.374px solid var(--first-color);
   padding: 10px;
   min-width: 682px;
   max-width: 682px;
@@ -158,7 +155,7 @@ textarea:not(:focus), input[type="text"]:not(:focus) {
 
 /* Счётчик */
 ::selection {
-  background-color: #D12326; /* Цвет фона выделения */
+  background-color: var(--first-color); /* Цвет фона выделения */
   color: #F7F7F7; /* Цвет текста в выделении */
 }
 
@@ -184,13 +181,13 @@ textarea:not(:focus), input[type="text"]:not(:focus) {
   line-height: 100%;
 
   background: #BFBFBF;
-  color: #314455;
+  color: var(--second-color);
   padding: 10px 15px;
   cursor: pointer;
 }
 
 .minus-button:hover, .plus-button:hover {
-  background: #D12326;
+  background: var(--first-color);
   color: #F7F7F7;
 }
 
@@ -202,7 +199,7 @@ textarea:not(:focus), input[type="text"]:not(:focus) {
   line-height: 100%;
 
   background: #D9D9D9;
-  color: #314455;
+  color: var(--second-color);
   padding: 10px 30px;
   text-align: center;
   min-width: 50px;
@@ -216,13 +213,13 @@ textarea:not(:focus), input[type="text"]:not(:focus) {
 /* Стили для поля ввода электронной почты */
 input[type="email"] {
   border-bottom: 4.374px solid transparent;
-  border-bottom: 4.374px solid #D12326;
+  border-bottom: 4.374px solid var(--first-color);
   padding: 10px;
   width: 326.08px;
   height: 42.346px;
   background-color: #D9D9D9;
   outline: none;
-  color: #314455;
+  color: var(--second-color);
   font-family: Roboto;
   font-size: 17.498px;
   font-style: normal;
@@ -249,13 +246,13 @@ input[type="email"]:not(:focus) {
 /* Стили для поля ввода номера телефона */
 input[type="tel"] {
   border-bottom: 4.374px solid transparent;
-  border-bottom: 4.374px solid #D12326;
+  border-bottom: 4.374px solid var(--first-color);
   padding: 10px;
   width: 326.08px;
   height: 42.346px;
   background-color: #D9D9D9;
   outline: none;
-  color: #314455;
+  color: var(--second-color);
   font-family: Roboto;
   font-size: 17.498px;
   font-style: normal;
@@ -276,12 +273,12 @@ input[type="tel"]:not(:focus) {
 /* Стили для выпадающего списка, аналогичные полям ввода номера телефона */
 #selectField {
   border-bottom: 4.374px solid transparent;
-  border-bottom: 4.374px solid #D12326;
+  border-bottom: 4.374px solid var(--first-color);
   padding: 10px;
   width: 326.08px;
   background-color: #D9D9D9;
   outline: none;
-  color: #314455;
+  color: var(--second-color);
   font-family: Roboto;
   font-size: 17.498px;
   font-weight: 600;
@@ -384,7 +381,7 @@ input[type="tel"]:not(:focus) {
 }
 
 .price_text {
-  color: #314455;
+  color: var(--second-color);
   text-align: center;
   font-family: Roboto;
   font-size: 39.922px;
@@ -392,59 +389,6 @@ input[type="tel"]:not(:focus) {
   font-weight: 600;
   line-height: 160%;
 }
-
-.animated-button {
-  position: relative;
-  display: inline-block;
-  padding: 18px 44px;
-  border: none;
-  background-color: inherit;
-  font-family: Roboto;
-  font-size: 17.498px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 100%;
-  color: #D12326;
-  box-shadow: 0 0 0 4px #D12326;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.animated-button span:last-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: #D12326;
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.animated-button span:first-child {
-  position: relative;
-  z-index: 1;
-}
-
-.animated-button:hover span:first-child {
-  color: #F7F7F7;
-}
-
-.animated-button:active {
-  scale: 0.95;
-}
-
-.animated-button:hover span:last-child {
-  width: 300px;
-  height: 150px;
-  opacity: 1;
-  background-color: #D12326;
-
-}
-
-
 
 
 .big {
@@ -611,10 +555,85 @@ transform: scale(1.05);
 
 
 ::-webkit-scrollbar-thumb {
-  background-color: #D12326; /* Цвет полосы прокрутки при наведении */
+  background-color: var(--first-color);
 }
 
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #D12326; /* Цвет полосы прокрутки при наведении */
+  background-color: var(--first-color); /* Цвет полосы прокрутки при наведении */
+}
+
+
+.button{
+  position: relative;
+  background: var(--first-color);
+  color: #fff;
+  padding: .9em 2.20em;
+  transition: .4s;
+}
+.button::after{
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 40%;
+  background: var(--first-color);
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  margin: 0 auto;
+  border-radius: 3em;
+  filter: blur(12px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.button__text{
+  position: relative;
+  z-index: 10;
+}
+.button img{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  pointer-events: none;
+  transition: .6s;
+  opacity: 0;
+}
+.button__cone{
+  width: 18px;
+  transform: translate(-25px,-6px) rotate(55deg);
+  filter: blur(.5px);
+}
+.button__torus{
+  width: 38px;
+  transform: translate(7px,-14px) rotate(80deg);
+}
+.button__icosahedron{
+  width: 36px;
+  transform: translate(34px,-4px) rotate(-45deg);
+  filter: blur(.9px);
+}
+.button__sphere{
+  width: 30px;
+  transform: translate(-5px,15px) rotate(40deg);
+}
+.button:hover::after{
+  opacity: 1;
+}
+.button:hover{
+  transform: scale(1.3);
+}.button:hover img{
+  opacity: 1;
+}
+.button:hover .button__cone{
+  transform: translate(-38px,-10px) scale(1.2);
+}
+.button:hover .button__torus{
+  transform: translate(7px,-32px) scale(1.1);
+} 
+.button:hover .button__icosahedron{
+  transform: translate(50px,-20px) scale(1.1);
+}
+.button:hover .button__sphere{
+  transform: translate(-14px,20px) scale(1.1);
 }
